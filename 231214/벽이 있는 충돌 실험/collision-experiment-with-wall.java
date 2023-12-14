@@ -37,8 +37,8 @@ public class Main {
                 
             }
 
-            // N번 확인하면 될 것 ..?
-            for (int q=0; q<N; q++) {
+            // N+4번 확인하면 될 것 ..?
+            for (int q=0; q<N+4; q++) {
                 int[][] nextMap = new int[N][N];
 
                 for (int i=0; i<N; i++) {
