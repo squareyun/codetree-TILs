@@ -5,8 +5,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         
-        Pos start = new Pos(sc.nextInt(), sc.nextInt(), 0);
-        Pos end = new Pos(sc.nextInt(), sc.nextInt(), 0);
+        Pos start = new Pos(sc.nextInt() - 1, sc.nextInt() - 1, 0);
+        Pos end = new Pos(sc.nextInt() - 1, sc.nextInt() - 1, 0);
+
+        if (start.x == end.x && start.y == end.y) {
+            System.out.println(0);
+            System.exit(0);
+        }
 
         int[] dx = {-2, -1, 1, 2, 2, 1, -1, -2};
         int[] dy = {1, 2, 2, 1, -1, -2, -2, -1};
