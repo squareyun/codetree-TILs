@@ -5,31 +5,24 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
+        int[] num = new int[3];
+        num[0] = sc.nextInt();
+        num[1] = sc.nextInt();
+        num[2] = sc.nextInt();
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int c = sc.nextInt();
+        // 정렬
+        Arrays.sort(num);
+        
+        int answer = 0;
+        if ((num[1] - num[0]) == 1 && (num[2] - num[1]) == 1) {
+            answer = 0;
+        } else if ((num[1] - num[0]) == 2 || (num[2] - num[1]) == 2) {
+            answer = 1;
+        } else {
+            answer = 2;
+        }
 
-        dfs(a, b, c, 0);
         System.out.println(answer);
-    }
-
-    static void dfs(int a, int b, int c, int cnt) {
-        // System.out.println(a + " " + b + " " + c);
-
-        if ((b-a) == 1 && (c-b) == 1) {
-            answer = Math.min(answer, cnt);
-            return;
-        }
-
-        // a를 이동
-        for (int i=c-1; i>b; i--) {
-            dfs(b, i, c, cnt + 1);
-        }
-    
-        // c를 이동
-        for (int i=a+1; i<c; i++) {
-            dfs(a, i, b, cnt + 1);
-        }
     }
 }
