@@ -15,9 +15,7 @@ public class Main {
     }
 
     static void dfs(int a, int b, int c, int cnt) {
-        if (a == b || b == c) {
-            return;
-        }
+        // System.out.println(a + " " + b + " " + c);
 
         if ((b-a) == 1 && (c-b) == 1) {
             answer = Math.min(answer, cnt);
@@ -25,8 +23,13 @@ public class Main {
         }
 
         // a를 이동
-        dfs(b, c-1, c, cnt + 1);
+        for (int i=c-1; i>b; i--) {
+            dfs(b, i, c, cnt + 1);
+        }
+    
         // c를 이동
-        dfs(a, a+1, b, cnt + 1);
+        for (int i=a+1; i<c; i++) {
+            dfs(a, i, b, cnt + 1);
+        }
     }
 }
