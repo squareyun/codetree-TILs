@@ -105,7 +105,7 @@ public class Main {
                         x = nx;
                         y = ny;
                     }
-                    newMap[x][y].add(new Data(v, i, dir));
+                    newMap[x][y].add(new Data(v, idx, dir));
                 }
             }
         }
