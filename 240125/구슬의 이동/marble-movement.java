@@ -93,7 +93,8 @@ public class Main {
                     int dir = now.d;
 
                     int x = i, y = j;
-                    while (v-->0) {
+                    int tempV = v;
+                    while (tempV-->0) {
                         int nx = x + dx[dir];
                         int ny = y + dy[dir];
 
