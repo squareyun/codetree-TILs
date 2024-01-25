@@ -35,11 +35,11 @@ public class Main {
             switch(d_s) {
                 case "L":
                     d = 0; break;
-                case "R":
-                    d = 1; break;
                 case "U":
-                    d = 2; break;
+                    d = 1; break;
                 case "D":
+                    d = 2; break;
+                case "R":
                     d = 3; break;                    
             }
 
