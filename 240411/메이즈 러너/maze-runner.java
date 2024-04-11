@@ -182,25 +182,23 @@ public class Main {
             int x = players[i].x;
             int y = players[i].y;
 
-            if (sx > x || x > sx+squareSize || sy > y || y > sy+squareSize-1)
-                continue;
-            
-            int ox = x - sx, oy = y - sy;
-            int rx = oy, ry = squareSize - ox - 1;
-            players[i].x = rx + sx;
-            players[i].y = ry + sy;
+            if(sx <= x && x < sx + squareSize && sy <= y && y < sy + squareSize) {
+                int ox = x - sx, oy = y - sy;
+                int rx = oy, ry = squareSize - ox - 1;
+                players[i].x = rx + sx;
+                players[i].y = ry + sy;
+            }
         }
 
         // 출구 회전
         int x = end.x;
         int y = end.y;
 
-        if (sx > x || x > sx+squareSize-1 || sy > y || y > sy+squareSize-1)
-            return;
-        
-        int ox = x - sx, oy = y - sy;
-        int rx = oy, ry = squareSize - ox - 1;
-        end.x = rx + sx;
-        end.y = ry + sy;
+        if(sx <= x && x < sx + squareSize && sy <= y && y < sy + squareSize) {
+            int ox = x - sx, oy = y - sy;
+            int rx = oy, ry = squareSize - ox - 1;
+            end.x = rx + sx;
+            end.y = ry + sy;
+        }
     }
 }
