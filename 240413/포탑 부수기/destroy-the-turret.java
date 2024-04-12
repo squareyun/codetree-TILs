@@ -91,6 +91,8 @@ public class Main {
                 }
             }
 
+            // System.out.println("공격자: " + w);
+            // System.out.println("당한자: " + s);
             // print();
             // System.out.println("after");
         }
@@ -193,6 +195,8 @@ public class Main {
             else if (nx >= n) nx = 0;
             if (ny < 0) ny = m - 1;
             else if (ny >= m) ny = 0;
+
+            if (nx == w.x && ny == w.y) continue;
 
             if (map[nx][ny] != 0) {
                 map[nx][ny] -= w.power / 2;
