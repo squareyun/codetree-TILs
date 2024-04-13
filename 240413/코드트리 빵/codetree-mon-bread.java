@@ -75,7 +75,7 @@ public class Main {
                 int ny = people[i].y + dy[d];
 
                 if (nx < 1 || nx > n || ny < 1 || ny > n) continue;
-                if (minDist > step[nx][ny] && map[nx][ny] != 2) {
+                if (minDist > step[nx][ny] && map[nx][ny] != 2 && v[nx][ny]) {
                     minDist = step[nx][ny];
                     minX = nx; minY = ny;
                 }
