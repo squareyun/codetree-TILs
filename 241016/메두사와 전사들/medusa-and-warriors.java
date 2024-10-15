@@ -257,8 +257,6 @@ public class Main {
 			}
 		}
 
-		if (minDir == -1) return;
-
 		home.x += dx[minDir];
 		home.y += dy[minDir];
 
@@ -277,6 +275,9 @@ public class Main {
 	}
 
 	private static int bfs(int x, int y, int dir) {
+		if (x == home.x && y == home.y)
+			return 0;
+		
 		PriorityQueue<Data> pq = new PriorityQueue<>();
 		boolean[][] v = new boolean[N][N];
 		pq.offer(new Data(x, y, 1));
