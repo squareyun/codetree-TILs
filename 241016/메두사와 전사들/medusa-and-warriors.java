@@ -55,12 +55,12 @@ public class Main {
 			}
 
 			if (home.x == end.x && home.y == end.y) {
-				System.out.println(0);
+				sb.append("0").append("\n");
 				break;
 			}
 			lightAct();
 			peopleAct();
-			sb.append(ans1).append(" ").append(ans2).append(" ").append(ans3);
+			sb.append(ans1).append(" ").append(ans2).append(" ").append(ans3).append("\n");
 		}
 		System.out.println(sb);
 	}
