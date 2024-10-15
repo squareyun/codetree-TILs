@@ -275,14 +275,11 @@ public class Main {
 	}
 
 	private static int bfs(int x, int y, int dir) {
-		if (x == home.x && y == home.y)
-			return 0;
-		
 		PriorityQueue<Data> pq = new PriorityQueue<>();
 		boolean[][] v = new boolean[N][N];
 		pq.offer(new Data(x, y, 1));
 		v[x][y] = true;
-		v[home.x][home.y] = true;
+		// v[home.x][home.y] = true;
 
 		while (!pq.isEmpty()) {
 			Data cur = pq.poll();
