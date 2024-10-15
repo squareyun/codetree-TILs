@@ -16,6 +16,7 @@ public class Main {
 	static int[] d2y = {-1, 1, 1, -1};
 
 	static int ans1, ans2, ans3;
+	static boolean notTheAnswer;
 
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
@@ -41,20 +42,27 @@ public class Main {
 			}
 		}
 
+		StringBuilder sb = new StringBuilder();
 		while (true) {
 			ans1 = 0;
 			ans2 = 0;
 			ans3 = 0;
 
 			homeAct();
+			if (notTheAnswer) {
+				System.out.println(-1);
+				return;
+			}
+
 			if (home.x == end.x && home.y == end.y) {
 				System.out.println(0);
 				break;
 			}
 			lightAct();
 			peopleAct();
-			System.out.println(ans1 + " " + ans2 + " " + ans3);
+			sb.append(ans1).append(" ").append(ans2).append(" ").append(ans3);
 		}
+		System.out.println(sb);
 	}
 
 	private static void peopleAct() {
@@ -244,7 +252,7 @@ public class Main {
 			if (map[nx][ny])
 				continue;
 
-			dist[d] = bfs(nx, ny, d);
+			dist[d] = bfs(nx, ny);
 		}
 
 		int minDist = Integer.MAX_VALUE;
@@ -255,6 +263,11 @@ public class Main {
 				minDist = dist[i];
 				minDir = i;
 			}
+		}
+
+		if (minDir == -1) {
+			notTheAnswer = true;
+			return;
 		}
 
 		home.x += dx[minDir];
@@ -274,12 +287,12 @@ public class Main {
 		}
 	}
 
-	private static int bfs(int x, int y, int dir) {
+	private static int bfs(int x, int y) {
 		PriorityQueue<Data> pq = new PriorityQueue<>();
 		boolean[][] v = new boolean[N][N];
 		pq.offer(new Data(x, y, 1));
 		v[x][y] = true;
-		// v[home.x][home.y] = true;
+		v[home.x][home.y] = true;
 
 		while (!pq.isEmpty()) {
 			Data cur = pq.poll();
