@@ -257,6 +257,8 @@ public class Main {
 			}
 		}
 
+		if (minDir == -1) return;
+
 		home.x += dx[minDir];
 		home.y += dy[minDir];
 
